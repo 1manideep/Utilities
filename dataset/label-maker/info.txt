@@ -1,0 +1,19 @@
+This Python script is used to manually label a set of images and store the labels in a JSON file. Here's a step-by-step explanation:
+
+1. It imports necessary libraries: `cv2` for image processing, `json` for handling JSON data, and `os` for interacting with the operating system.
+
+2. It specifies a directory that contains the images to be labeled.
+
+3. It gets a list of all files in the specified directory.
+
+4. It initializes an empty list `labels` to store the labels for each image.
+
+5. For each file in the directory, it does the following:
+   - Constructs the full path to the file.
+   - Reads the image using `cv2.imread`.
+   - If the image is not loaded properly (i.e., `img` is `None`), it prints an error message and skips to the next file.
+   - Displays the image using `cv2.imshow`, waits for 1000 milliseconds (1 second), and then closes the window with `cv2.destroyAllWindows`.
+   - Asks the user to enter a label for the image.
+   - Appends a dictionary containing the file name and the user-provided label to the `labels` list.
+
+6. After all images have been labeled, it writes the `labels` list to a JSON file. Each entry in the JSON file is a dictionary with two keys: `"image_id"` (the file name) and `"label"` (the label provided by the user).
